@@ -1,0 +1,184 @@
+
+/****************************************************************************** Eléments principaux de la page ********************************************************************************************************************/
+
+body, h1, h2, ul, li, nav, article, section { margin: 0; padding:0; border:0}
+p{-webkit-margin-befor:0} /* annuler les valeurs par défaut navigateur */
+
+
+#bloc_page{width: 1200px;margin: auto; background-color:#FFF8DC ;}
+body {font-family: 'Trebuchet MS', Arial, sans-serif;color: #181818;}
+
+/*************************************************************************************************** Header ***********************************************************************************************************************/
+#logo img{width: 150px;height: auto;}
+#home{width: 50px;height: auto;margin-bottom:20px}	 
+header{background-color:#FFF8DC ;display: flex;justify-content: space-between;align-items: flex-end;border-radius: 5px 5px 0px 0px;}
+
+
+/**************************************************************************************************** Navigation *****************************************************************************************************************/
+
+nav ul{list-style-type: none;display: flex;}
+
+nav li{margin-right: 15px;}
+
+nav a{font-size: 1.5em;color: #181818;text-decoration: none;margin-bottom:50px;padding:5px; }
+
+
+nav a:hover{color: #760001;box-shadow: 0px 4px 4px #1c1a19; border-radius: 5px;}
+
+
+
+/*********************************************************************************************** l'image de la banière**********************************************************************************************************/
+
+#imgbaniere{margin-top: 15px; width:100%;height: auto;border-radius: 0px 0px 0px 0px;background-position: center;position: relative;box-shadow: 0px 4px 4px #1c1a19;}
+
+
+
+/***************************************************************************************************Page contact*****************************************************************************************************************/
+
+/******************************************titre***************************************************/
+
+#titre-principal{position: left;bottom: 0;width: 100%;height: 50px;margin:0px 20px 20px 0px;background:#DEB887;border-radius: 0px 0px 5px 5px ;background-position: center;box-shadow: 0px 4px 4px #1c1a19;}
+/************************************* l'entete ***********************************/
+#adresse{display:flex; direction:wrap}
+
+#coordonee{margin:30px; text-align:justify; line-height:50px;font-size: 1.2em;}
+
+#map{ width:600px;height:300px;margin:20px 50px 50px 50px;}
+
+
+/*************************************le formulaire de contact*************************************/
+
+p{text-align:justify;line-height:25px}
+
+sup {color:red}
+
+#formulaire-contact {padding:0 20px 20px 20px;margin:20px;border:none;width:80%;}
+
+label {display:inline-block;}
+ 
+label.inline {display:inline;margin-right:50px;}
+ 
+input, textarea {background-color:#DEB887;}
+
+
+input[type=reset] {width:100px;margin-left:5px;box-shadow:1px 1px 1px #C0C0C0;cursor:pointer;}
+ 
+input[type=submit]:hover, input[type=reset]:hover {background-color:#808000;}
+ 
+input[type=submit]:active, input[type=reset]:active {background-color:#FFF8DC;box-shadow:1px 1px 1px #DEB887 inset;}
+#indication-captcha{font-size: 0.8em}
+
+ 
+/**********************************************************************************************************************Espace parent***********************************************************************************************/
+
+/************************** le titre ************************/
+#titre-principal1{display: flex;bottom: 0;width: 100%;height: 50px;margin:0px 20px 20px 0px;background:#DEB887;border-radius: 0px 0px 5px 5px ;background-position: center;box-shadow: 0px 4px 4px #1c1a19;justify-content:space-between;}
+
+#menu li{padding:5px}
+
+/***************ajuster image d'alerte*************************/
+#img {width:20px;height: auto; margin-left:100px}
+#alerte{margin:50px}
+#information:hover{color:red;font-size:1.2em}
+#information{font-size:0.8em}
+
+/*************************le corps ********************************/
+#contenu {display: flex;flex-wrap: wrap;margin-top:5px; margin-left:50px}
+
+#article1, #article2,#article3, #article4 { margin: 20px; width:40%; height: 350px;padding:20px}
+
+/**************** image arrière plan de chaque article**********************/
+
+#article1 {background: url('../images/pieds.jpg') no-repeat;background-position: center; border-radius:5px; box-shadow: 0px 4px 4px #1c1a19;}
+#article2 {background: url('../images/rituel.jpg') no-repeat;background-position: center;border-radius:5px; box-shadow: 0px 4px 4px #1c1a19;}
+#article3 {background: url('../images/proprete.jpg') no-repeat;background-position: center; box-shadow: 0px 4px 4px #1c1a19;}
+#article4 {background: url('../images/ecran.jpg') no-repeat;background-position: center;border-radius:5px; box-shadow: 0px 4px 4px #1c1a19;}
+
+
+#article1:hover{color: black;background:white }
+#article2:hover{color: black;background:white }
+#article3:hover{color: black;background:white }
+#article4:hover{color: black;background:white }
+
+.conseil {color: transparent;text-align:justify; line-height:25px}
+.conseil:hover{color: black; background: white}
+
+
+#labienvenue{ text-align-last: center;margin-top: 80px; margin-bottom: 100px; text-align:justify; line-height:25px;font-size: 1.5em;}
+
+/*************************************************************************************** Page journée type de l'enfant*************************************************************************************************************/
+
+/********** titre de la page*********************/
+#titre {position: left;bottom: 0;width: 100%;height: 50px;margin:0px 20px 20px 0px;background:#DEB887;border-radius: 0px 0px 5px 5px ;background-position: center;box-shadow: 0px 4px 4px #1c1a19;}
+
+#titre ul{display:flex;list-style-type: none;font-size: 1.5em;color: #800000}
+
+#titre li{margin: 0px;padding-top:5px}
+
+#titre a{ color:#000000; text-decoration: none}
+
+#titre a:hover { color:#800000;box-shadow: 0px 4px 4px #1c1a19;padding:5px;border-radius: 5px }
+
+/***************contenu *****************/
+
+
+#intro {margin:50px; text-align:justify; line-height:25px;font-size: 1.2em;}
+article{display:flex; padding:10px;}
+h2{color:#800000}
+.paragraphe{height:200px; padding: 5px 20px 0px 20px; text-align:justify; line-height:25px;background: #FFDEAD; border-radius: 0px 5px 5px 0px;}
+#image{border-radius:  5px 0px 0px 5px;height:200px;}
+
+
+/***************************************************************************************** mise en page page prè-inscription******************************************************************************************************/
+/************************introduction****************************************/
+#demande { width:relative;background:#FFF8DC; padding: 20px;}
+#introduction{margin: 50px; text-align:justify; line-height:25px;font-size: 1.2em;}
+#introduction li {list-style-type: square; margin-left: 20px; line-height:25px}
+#introduction li a {list-style-type: none}
+
+/*************************formulaire de pré-inscription**************************/
+
+form{position:center; margin:80px; margin-bottom:20px}	
+fieldset {padding:0 20px 20px 20px;margin-bottom:10px;border:1px solid #800000;border-radius:5px;width:80%;}
+legend {color:#800000;font-weight:bold}
+label {display:inline-block;}
+label.inline {display:inline;margin-right:50px;}
+input, textarea, select, option {background-color:#DEB887;}
+input[type=submit]{background-color:#808000;font-size: 1.3em}
+input[type=radio] {background-color:transparent;border:none;width:10px;}
+input[type=submit] {width:20%;height:40px;margin-left:5px;box-shadow:1px 1px 1px #C0C0C0;cursor:pointer;}
+input[type=submit]:hover{background-color:green;}
+input[type=submit]:active, input[type=reset]:active {background-color:#FCDEDE;box-shadow:1px 1px 1px #D83F3D inset;}
+input[type=reset]:hover {background-color:#FCDEDE;}
+
+/****** bouton imprimer*******************/
+
+button{margin:20px 0px 20px 90px; background-color:#DEB887; width:100px; height:auto;cursor:pointer;}
+button:hover {background-color:#FCDEDE;}
+
+
+ /********************************************************************************************************Footer*********************************************************************************************************** */
+ 
+footer {width:1200px;background:url('../images/bambou.jpg') no-repeat;padding-top: 50px;}
+footer ul{display: flex;justify-content: space-evenly;list-style-type: none;position: center;}
+footer a{ color:#FFF8DC ;font-size: 2em;text-decoration: none;}
+footer a:hover{color: #760001;box-shadow: 0px 4px 4px #1c1a19; border-radius: 5px;padding:5px}
+#copy{margin-left:400px ;color:#FFF8DC;font-size: 1.3em }
+#icone-contact{width: 50px; height: auto;}
+
+table {
+ border-collapse:collapse;
+ width:90%;
+ margin:5%;
+ }
+th, td {
+ border:2px solid #800000;
+ width:20%;
+ }
+td {
+ text-align:center;
+ }
+caption {
+ font-weight:bold
+ }
+ #mentions{margin:30px}
