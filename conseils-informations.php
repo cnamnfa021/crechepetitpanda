@@ -38,10 +38,10 @@
       <div id=" alerte" >
 	  <p id="labienvenue"> Bienvenue dans votre espace </p>
 	  <?php include "inc/connexion.inc.php"; /*connexion à la bdd "projetcnam"*/
-       $requete='SELECT description FROM content WHERE title="information"';
+       $requete='SELECT content_description FROM content WHERE content_title="information"';
        $reponse=$con->query($requete);
 	   while ($donnees = $reponse->fetch()) {?>
-          <img id="img" src="images/alerte.jpg" alt="image de l'alerte" > <strong id="information"> <?php echo $donnees['description']?> </strong>
+          <img id="img" src="images/alerte.jpg" alt="image de l'alerte" > <strong id="information"> <?php echo $donnees['content_description']?> </strong>
 	  </div>
 	   <?php } ?>
       <section>
@@ -49,20 +49,22 @@
  		<article id="contenu">
 		 <?php
 		 include "inc/connexion.inc.php"; /*connexion à la bdd "projetcnam"*/
-         $requete='SELECT * FROM content WHERE nom_page="Conseils" ORDER BY id';//Il faut mettre ORDER BY id pour que les articles s'affichent du premier au dernier posté.
+         $requete='SELECT * FROM content WHERE content_nompage="Conseils" ORDER BY content_id';//Il faut mettre ORDER BY id pour que les articles s'affichent du premier au dernier posté.
          $reponse=$con->query($requete);
 
         //affiche tout les titres et les descriptions associées.
-        while ($donnees = $reponse->fetch()) {
+		$i=1; //compteur pour incrémenter "id" de div (utilisé dans fichier css)
+         while ($donnees = $reponse->fetch()) {
 		 ?>
-		    <div id="article3">
-		      <h2>  <?php echo $donnees['title'] ?> </h2>
+		    <div id="<?php echo "article".$i?>"> 
+		      <h2>  <?php echo $donnees['content_title'] ?> </h2>
 		      <p class="conseil">
-			   <?php echo $donnees['description'] ?>
+			   <?php echo $donnees['content_description'] ?>
 			  </p>
             </div>
 		 <?php 
-		 } ?>
+		 $i=$i+1; //incrémenter numéro d'article afin d'afficher la bonne image en fond d'écran
+		 } ?> 
 			
    	    <footer>
 	       <div>
