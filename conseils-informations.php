@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset='utf-8'/>
-    <title> coneils et informations </title>
+    <title> conseils et informations </title>
     <link rel='stylesheet' href='css/styleamina.css' />
   </head>
   <body>
@@ -64,7 +64,8 @@
             </div>
 		 <?php 
 		 $i=$i+1; //incrémenter numéro d'article afin d'afficher la bonne image en fond d'écran
-		 } ?> 
+		 } ?>
+ 		</article>
 			
    	    <footer>
 	       <div>
