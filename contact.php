@@ -24,8 +24,8 @@
          <ul>
            <li> <a href="index.html"><img id="home" src="images/home.jpg" /></a></li>
 		   <li><a href="conseils-informations.php">Conseils et informations</a></li>
-           <li><a href="pre-inscription.php"> Journée type de l'enfant</a></li>
-		   <li><a href="journee-type-de-lenfant.php"> Prè-inscription </a></li>
+           <li><a href="pre-inscription.php">Pré-inscription</a></li>
+		   <li><a href="journee-type-de-lenfant.php">Journée type de l'enfant</a></li>
            <li><a href="contact.php">Contact</a></li>
 	     </ul>
        </nav>
@@ -47,16 +47,15 @@
        <p><strong> Téléphone: 06 64 71 78 30/ 07 83 25 39 58</strong></p>
        <p><strong>Email : contact@petitpanda.fr</strong></p>
 	   </div>
-	   <div>
-	   <div id="map"> <!-- l'image map-->
-	</div>
+	   <div id="map"><!-- l'image map-->
+	   </div>
 	 </article>
 
-	 <form name="formulaire" action="message.php" method="GET" onsubmit="return verifForm(this)">
+	 <form name="formulaire" action="message.php" method="GET" >
 
 	     <fieldset id="formulaire-contact">
             <p>
-            <label for="nom">Nom et Prènom <sup> * </sup></label>
+            <label for="nom">Nom et Prénom <sup> * </sup></label>
 			</p>
 			<p>
             <input type="text" name="user" placeholder="Nom et prénom" required onblur="verifPseudo(this)" />
@@ -74,14 +73,17 @@
 		    <p>
    		    Sujet de message 
 		   </p>
+
+<!-- Le checked="checked" permet de donner une valeur par défaut à l'input radio (pas d'erreur champs vide sur message.php).-->
+
 		   <p> 
-	       <input type="radio" name="heures" value="moins de 15h par semaine" id="moins de 15h par semaine" /> <label for="riche">Demande de contact </label>
+	       <input type="radio" name="sujet" value="moins de 15h par semaine" id="moins de 15h par semaine" checked="checked" /> <label for="riche">Demande de contact </label>
 		   </p>
 		   <p>
-           <input type="radio" name="heures" value="entre 15h et 20h" id="entre 15h et 20h" /> <label for="entre 10h et 20h">Demande d'information</label>
+           <input type="radio" name="sujet" value="entre 15h et 20h" id="entre 15h et 20h" /> <label for="entre 10h et 20h">Demande d'information</label>
 		   </p>
 		   <p>
-           <input type="radio" name="heures" value="entre 20h et 35h" id="entre 20h et 35h" /> <label for="entre 20h et 35h"> Suggestion d'amélioration</label>
+           <input type="radio" name="sujet" value="entre 20h et 35h" id="entre 20h et 35h" /> <label for="entre 20h et 35h"> Suggestion d'amélioration</label>
 		   </p>
 		   <p>
 	       <label for="email"> Email<sup> * </sup></label>
@@ -100,19 +102,23 @@
 		   <p id="message_error">
 		   </p>
 		   <p>
-		   <input type="hidden" name="date" id="soumi" size="30" maxlength="50" value=""  /> <!--  input type hidden pour stoquer la date de soumission du formulaire -->
+		   <input type="hidden" name="date" value="" id='date'/> <!--  input type hidden pour stoquer la date de soumission du formulaire -->
 		   </p>
 		   <p>
 		   <label for="answer"> Question mathématique <sup> * </sup> </label>
 		   </p>
 		   <span for="answer" id="question"> question</span>
-           <input id="answer" type="text" required onblur="return captcha(this);"/> <!-- capatcha matématique -->
+           // <input id="answer" type="text" required onblur="return captcha(this);"/> <!-- captcha mathématique -->
 		   <p id="erreuranswer">
 		   </p>
 		   <p id="indication-captcha">
-		   Trouvez la solution de ce problème mathématique simple et saisissez le résultat.Par exemple, pour 1 + 1, saisissez 2.
+		   Trouvez la solution de ce problème mathématique simple et saisissez le résultat. Par exemple, pour 1 + 1, saisissez 2.
 		   </p>
 		   <p> Les champs indiqués par une <sup> * </sup> sont obligatoires.</p>
+
+<!--$backoffice permet d'activer la sécurité côté serveur (message.php), lors de l'envoi d'un nouveau message (ou d'une modification).-->
+		   <input type="hidden" name="$backoffice" value="nothing"/>
+
       	   <p> 
 	       <input type="submit" value="Envoyer" /> 
 	       <input type="reset" value="Annuler" />
@@ -148,8 +154,6 @@
 	</div>
     <input id="page" type="hidden" value="contact.html" />
     <script src="https://maps.google.com/maps/api/js?key=AIzaSyB1aJKL68_gpKem4NfRnm4ymFwDSkCu33s" type="text/javascript"></script>
-    <script src="js/fonction.js" type="text/javascript"> </script>
+    <script src="js/fonction.js" type="text/javascript"></script>
   </body>
- </html>
- 
-   
+ </html>)
