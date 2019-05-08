@@ -34,7 +34,12 @@
        </nav>
      </header>
 
-	  
+	  <?php session_start();
+        echo 'Bienvenue ' . $_SESSION["login"];
+		/*$backoffice="ok"; évite l'itération des instruction de sécurité sur message.php (renvoi d'erreurs = variables de formulaires vides)*/
+		$backoffice="ok";
+		?>
+		
 	  <div id="titre-principal1">
 	    <h1><strong> Backoffice </strong></h1>
       </div>
@@ -84,7 +89,7 @@ cachées qui s'affichent avec le message par défaut !). -->
     <p><strong><a href="articlemodif.php">Créer un nouvel article</a></strong></p>
 
 	<!--Lien vers la page message.php, sans id envoyée (insère une nouvelle ligne dans la table content).-->
-    <p><strong><a href="message.php">Consulter les messages</a></strong></p>
+    <p><strong><a href="message.php?$backoffice=ok">Consulter les messages</a></strong></p>
    </section>
 
 	  <footer>
