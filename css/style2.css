@@ -201,4 +201,61 @@ footer a:hover
 }
 #copy{margin-left:400px ;color:#FFF8DC;font-size: 1.3em }
 
+/*--------------------------------------------------------------------------------------------- bouton connexion------------------------------------------*/
+.conex {  position: absolute;
+	right: 400px;
+	top:30px;}
+#bienvenu{ position: absolute;right: 380px;margin:5px
+	}
+button{ background-color:#DEB887; width:100px; height:auto;cursor:pointer;}
+button:hover {background-color:#FCDEDE;}
 
+/**********************************************************Responsivité version PC (MH)*******************************************************/
+ @media only screen and (min-width:701px) {
+
+#logo img{width: 150px;}
+#bloc_page{width: 1200px;}
+h1{font-size:2em;}
+nav a{font-size: 1.5em;}
+
+#adresse{direction: wrap;}
+#map{width: 600px; margin:20px 50px 50px 50px;}
+input[type=submit] {width:20%;}
+
+#article1, #article2,#article3, #article4 {width:40%; height: 350px;}
+ 
+/**************************responsivité du footer*******************************/
+footer {width:1200px;}
+footer a{font-size: 2em;}
+#copy{margin-left:400px; font-size: 1.3em;}
+#icone-contact{width: 50px; height: auto;}
+
+/*page journée type*/
+#image{height:200px;}
+#intro{font-size: 1.2em;}
+}
+
+/**********************************************************Version mobile (MH)*******************************************************/
+@media only screen and (max-width:700px) {
+#logo img{width: 70px;}
+h1{font-size:1.2em;}
+nav a{font-size: 1em;}
+
+#adresse{flex-direction:column; align-content:center;}
+#map{width: 520px; margin:20px 30px 30px 30px;}
+input[type=submit] {width:30%;}
+
+footer {width: 600px;}
+footer a{font-size: 1em;}
+#bloc_page{width: 600px;}
+#copy{margin-left:200px; font-size: 0.8em;}
+
+/*page journée type*/
+#image{height: 100px;}
+.paragraphe{width: 400px; height: auto; font-size:0.8em;}
+#intro{width:500px; font-size: 1em;}
+
+/*page parents*/
+#contenu {flex-direction: column;}
+#article1, #article2,#article3, #article4 {width:80%; height: 350px;}
+}
