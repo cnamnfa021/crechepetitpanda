@@ -19,6 +19,29 @@
   <body>
 
     <div id="bloc_page">
+	  <div><!-- Gestion du bouton connexion/déconnexion-->
+		<?php
+		  session_start();
+		  include "inc/connexion.inc.php"; /*connexion à la bdd "projetcnam"*/
+		
+		  if(isset($_SESSION['login'])) {
+		?>
+		  <p id="bienvenu"><!-- affichage du nom de la personne connectée -->
+			<?php echo 'Bienvenue ' . $_SESSION["login"];?>
+		  </p>
+			<!-- Création du bouton déconnexion qui redirige vers la pge déconnexion -->
+			<button class="conex" onClick="location.href='deconnexion.php';">Déconnexion</button>
+			
+		   <?php
+			  }else {
+			?>
+		   <!-- Création du bouton connexion qui redirige vers la page connexion-->
+			 <button class="conex" onClick="location.href='connexion.php';">Connexion</button>
+		
+		   <?php 
+			  }
+		  ?>
+	   </div>
 	  <header>
 	   <div id="logo">
          <img src="images/logo.png" alt="Logo de site" />
@@ -45,11 +68,13 @@
       <section>
 
         <?php
-        session_start();
+		// S'il y a une session alors on ne retourne plus sur cette page  
+		if (isset($_SESSION['id'])){
+			header('Location: index.php');
+			exit;
+		}
 
-        try{ $bdd = new PDO('mysql:host=localhost;dbname=projetcnam;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)); }
-        catch(Exception $e) { die('Erreur : '.$e->getMessage()); }
-
+              
         if ((isset ($_GET["login"]))||(isset ($_GET["password"]))){
         $_SESSION["login"]=$_GET["login"];
         $_SESSION["password"]=$_GET["password"];}
@@ -59,7 +84,7 @@
 //si aucun login ou aucun (la variable n'existe pas -> empty) password n'a été entré (même faux), le message est affiché.
         }
         else {
-        $st = $bdd->query("SELECT COUNT(*) FROM user WHERE user_login='".$_SESSION["login"]."' AND user_password='".$_SESSION["password"]."'")->fetch();
+        $st = $con->query("SELECT COUNT(*) FROM user WHERE user_login='".$_SESSION["login"]."' AND user_password='".$_SESSION["password"]."'")->fetch();
 //si les identifiants sont entrés on cherche dans la bdd si ils sont dans la même ligne.
 //La fonction COUNT() retourne le nombre de lignes qui correspondent à un critère specifié. l'* signifie que la fonction cherche dans toutes les colonnes.
         if ($st['COUNT(*)'] == 1){
@@ -81,20 +106,20 @@
 
       <p>
         <label for="login"> login <sup> * </sup>:</label>
-        <input type="text" name="login" placeholder="login" required onblur="verifPseudo(this)" />
+        <input type="text" name="login" placeholder="login"  onblur="verifPseudo(this)" />
       </p>
       <p id="name_error"></p>
 
       <p>
         <label for="password"> mot de passe <sup> * </sup>:</label>
-        <input type="text" name="password" placeholder="mot de passe" required/>
+        <input type="text" name="password" placeholder="mot de passe" />
       </p>
       <p id="password_error"></p>
 
       <p><input type="submit" value="Valider" /></p>
 
       <p>
-        <input type="reset" name="effacer" value=" effacer ">
+        <input type="reset" name="effacer" value=" Effacer ">
       </p>
 
       </fieldset>
