@@ -16,16 +16,40 @@
   
   <body onsubmit="Datevalid();">
    <div id="bloc_page">
+     <div><!-- Gestion du bouton connexion/déconnexion-->
+		<?php
+		  session_start();
+		  include "inc/connexion.inc.php"; /*connexion à la bdd "projetcnam"*/
+		
+		  if(isset($_SESSION['login'])) {
+		?>
+		  <p id="bienvenu"><!-- affichage du nom de la personne connectée -->
+			<?php echo 'Bienvenue ' . $_SESSION["login"];?>
+		  </p>
+			<!-- Création du bouton déconnexion qui redirige vers la pge déconnexion -->
+			<button class="conex" onClick="location.href='deconnexion.php';">Déconnexion</button>
+			
+		   <?php
+			  }else {
+			?>
+		   <!-- Création du bouton connexion qui redirige vers la page connexion-->
+			 <button class="conex" onClick="location.href='connexion.php';">Connexion</button>
+		
+		   <?php 
+			  }
+		  ?>
+	 </div>
      <header>
 	   <div id="logo">
          <img src="images/logo.png" alt="Logo de site" />
        </div>
 	   <nav>
          <ul>
-           <li> <a href="index.html"><img id="home" src="images/home.jpg" /></a></li>
+           <li> <a href="index.php"><img id="home" src="images/home.jpg" /></a></li>
 		   <li><a href="conseils-informations.php">Conseils et informations</a></li>
-           <li><a href="pre-inscription.php">Pré-inscription</a></li>
 		   <li><a href="journee-type-de-lenfant.php">Journée type de l'enfant</a></li>
+           <li><a href="pre-inscription.php">Pré-inscription</a></li>
+		   
            <li><a href="contact.php">Contact</a></li>
 	     </ul>
        </nav>
@@ -108,7 +132,7 @@
 		   <label for="answer"> Question mathématique <sup> * </sup> </label>
 		   </p>
 		   <span for="answer" id="question"> question</span>
-           // <input id="answer" type="text" required onblur="return captcha(this);"/> <!-- captcha mathématique -->
+           <input id="answer" type="text" required onblur="return captcha(this);"/> <!-- captcha mathématique -->
 		   <p id="erreuranswer">
 		   </p>
 		   <p id="indication-captcha">
@@ -156,4 +180,4 @@
     <script src="https://maps.google.com/maps/api/js?key=AIzaSyB1aJKL68_gpKem4NfRnm4ymFwDSkCu33s" type="text/javascript"></script>
     <script src="js/fonction.js" type="text/javascript"></script>
   </body>
- </html>)
+ </html>
