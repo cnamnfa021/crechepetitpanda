@@ -7,20 +7,43 @@
   </head>
   <body>
     <div id="bloc_page">
-	<header>
+	  <div><!-- Gestion du bouton connexion/déconnexion-->
+		<?php
+		  session_start();
+		  include "inc/connexion.inc.php"; /*connexion à la bdd "projetcnam"*/
+		
+		  if(isset($_SESSION['login'])) {
+		?>
+		  <p id="bienvenu"><!-- affichage du nom de la personne connectée -->
+			<?php echo 'Bienvenue ' . $_SESSION["login"];?>
+		  </p>
+			<!-- Création du bouton déconnexion qui redirige vers la pge déconnexion -->
+			<button class="conex" onClick="location.href='deconnexion.php';">Déconnexion</button>
+			
+		   <?php
+			  }else {
+			?>
+		   <!-- Création du bouton connexion qui redirige vers la page connexion-->
+			 <button class="conex" onClick="location.href='Connexion.php';">connexion</button>
+		
+		   <?php 
+			  }
+		  ?>
+	  </div>
+	  <header>
 	   <div id="logo">
          <img src="images/logo.png" alt="Logo de site" />
        </div>
 	   <nav>
          <ul>
-           <li> <a href="index.html"><img id="home" src="images/home.jpg" /></a></li>
+           <li> <a href="index.php"><img id="home" src="images/home.jpg" /></a></li>
 		   <li><a href="conseils-informations.php">Conseils et informations</a></li>
            <li><a href="journee-type-de-lenfant.php"> Journée type de l'enfant</a></li>
-		   <li><a href="pre-inscription.php"> Prè-inscription </a></li>
+		   <li><a href="pre-inscription.php"> Pré-inscription </a></li>
            <li><a href="contact.php">Contact</a></li>
 	     </ul>
        </nav>
-     </header>
+      </header>
             
       <div id="entete">
 	  <img id="imgbaniere" src="images/pre-inscription.jpg" />
