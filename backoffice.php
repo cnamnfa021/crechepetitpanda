@@ -51,7 +51,7 @@
            <li> <a href="index.php"><img id="home" src="images/home.jpg" /></a></li>
 		   <li><a href="conseils-informations.php">Conseils et informations</a></li>
            <li><a href="journee-type-de-lenfant.php"> Journée type de l'enfant</a></li>
-		   <li><a href="pre-inscription.php"> Prè-inscription </a></li>
+		   <li><a href="pre-inscription.php"> Pré-inscription </a></li>
            <li><a href="contact.php">Contact</a></li>
 	     </ul>
        </nav>
