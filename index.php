@@ -9,12 +9,31 @@
     
   <body>
    <div id="bloc-page">
-     
+    <div id="connexion"><!-- Gestion du bouton connexion/déconnexion-->
+		<?php
+		  session_start();
+		  include "inc/connexion.inc.php"; /*connexion à la bdd "projetcnam"*/
+		
+		  if(isset($_SESSION['login'])) {
+		?>
+		  <p id="bienvenu"><!-- affichage du nom de la personne connectée -->
+			<?php echo 'Bienvenue ' . $_SESSION["login"];?>
+		  </p>
+			<!-- Création du bouton déconnexion qui redirige vers la pge déconnexion -->
+			<button class="conex" onClick="location.href='deconnexion.php';">Déconnexion</button>
+			
+		   <?php
+			  }else {
+			?>
+		   <!-- Création du bouton connexion qui redirige vers la page connexion-->
+			 <button class="conex" onClick="location.href='connexion.php';">Connexion</button>
+		
+		   <?php 
+			  }
+		  ?>
+	   </div>
+	
      <header>
-	 <div id="connexion">
-	 
-	 <button> <a href="connexion.php"> connexion </button>  <!--bouton imprimer de la zone définie -->
-	 </div>
 	   <div id="logo">
          <img src="images/logo.png" alt="Logo de site" />
        </div>
@@ -23,12 +42,12 @@
            <li> <a href="index.php"><img id="home" src="images/home.jpg" /></a></li>
 		   <li><a href="conseils-informations.php">Conseils et informations</a></li>
            <li><a href="journee-type-de-lenfant.php"> Journée type de l'enfant</a></li>
-		   <li><a href="pre-inscription.php"> Prè-inscription </a></li>
+		   <li><a href="pre-inscription.php"> Pré-inscription </a></li>
            <li><a href="contact.php">Contact</a></li>
 	     </ul>
        </nav>
      </header>
-            
+          
      <main>
        <h1>Accueil</h1>
          <div class="DiaporamaBox">
@@ -37,16 +56,14 @@
            </div>
          </div>
               
-         <section id="History"><!-- fond ne fonction pas a vérifier -->
+         <section id="History">
            <h2>histoire de PetitPanda</h2>
-           <article id="histoire"><!-- faute à vérifier-->
+           <article id="histoire">
              <p>
-		     Bonjour cher visiteur, je veux vous introduire l'histoire de notre crèche.
-             Son nom "PetitPanda" vient du panda roux qui est le petit panda de la nature,
-             mais également de notre fils, qui enfant était tout potelé avec des joues bien roux.
+		     Bonjour cher visiteur, 
 		     </p>
              <p>
-			 PetitPanda était créé en 2016 par mon mari et moi-même. Cette crèche fut le rêve d'une vie.
+			 PetitPanda était créé en 2016, Cette crèche fut le rêve d'une vie.
 			 </p>
 		     <p>
              Nos avons voulu apporté aux  jeunes parents actifs la meilleur structure et organisation pour le bien-être de leurs enfants.
@@ -65,12 +82,11 @@
             
 	     <section id="selection">
            <div id ="ici" class="selBox1">
-             
 		     <article>
 			   <h3> Conseils et informations </h3>
 			   <article id="resume-conseils"> 
 			     <p>
-			    Dans cette page vous trouverez des informations vous concernant ainsi des conseils pratiques qui peuvant vous aider à mieux comprendre votre enfant!
+			       Dans cette page vous trouverez des informations vous concernant ainsi des conseils pratiques qui peuvant vous aider à mieux comprendre votre enfant!
                  </p>	
                 
 			   </article>
@@ -83,37 +99,32 @@
 		       <h3> Journée type de l'enfant </h3>
 			   <article id="resume-journee"> 
 			     <p>
-			    Cette page décrit le déroulement d'une journée type de votre enfant , elle détaille les moments les plus important!
+			       Cette page décrit le déroulement d'une journée type de votre enfant , elle détaille les moments les plus important!
                  </p>	
                </article>
 			   <a id="masquer" href="#ici" onClick="masquerafficher(this,'resume-journee')">Masquer le résumé</a> <!--appel à la fonction masquerafficher() pour afficher/masquer le résumé des articles-->
 			 </article>
-			 </article>
-		</div>
+		  </div>
 		
-		 <div id ="ici" class="selBox2">
+		  <div id ="ici" class="selBox2">
              <article>
 		       <h3> Prè-inscription </h3>
 			   <article id="resume-formulaire"> 
 			     <p>
-			     Vous trouvez le formulaire qui vous permettra de faire une pré-inscription en ligne, comme vous pouvez aussi l'imprimer, le remplir et l'envoyer!
-			     Tout simplemment il vous facilte la vie en un clic!
+			       Vous trouvez le formulaire qui vous permettra de faire une pré-inscription en ligne, comme vous pouvez aussi l'imprimer, le remplir et l'envoyer!
+			       Tout simplemment il vous facilte la vie en un clic!
    			     </p>
 			   </article>
 			   <a id="masquer" href="#ici" onClick="masquerafficher(this,'formulaire')">Masquer le résumé</a> <!--appel à la fonction masquerafficher() pour afficher/masquer le résumé des articles-->
 			 </article>
-			 </article>
-		</div>
-		
-		
-		
-         </section >
+    	  </div>
+	     </section >
       </main> 
 	  
        <footer>
 	       <div>
 	         <ul>
-               <li> <a href="index.html">Accueil</a></li>
+               <li> <a href="index.php">Accueil</a></li>
                <li><a href="mention-legales.php">Mentions légales</a></li>
                <li><a href="contact.php"><img id="icone-contact" src="images/icone.png" /></a></li>
              </ul>
@@ -124,12 +135,14 @@
 		      include "inc/connexion.inc.php";
 			  $requete="SELECT user_login FROM user WHERE user_statut='createur'";
 			  $resultat=$con->query($requete);?>
-		      <p> <strong> <?php 
-			  echo 'Copyright $ ';
-			  while($donnees=$resultat->fetch()){ 
-			    echo $donnees['user_login'];
-			    echo ' $ ';
-			  } ?>
+		      <p> <strong> 
+			  <?php 
+				  echo 'Copyright $ ';
+				  while($donnees=$resultat->fetch()){ 
+					echo $donnees['user_login'];
+					echo ' $ ';
+			      } 
+			  ?>
 			  </strong></p>	 
 		   </div>
 		 </footer>
