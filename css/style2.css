@@ -1,52 +1,29 @@
 
 /****************************************************************************** Eléments principaux de la page ********************************************************************************************************************/
 
-body, h1, h2, ul, li, nav, article, section { margin: 0; padding:0; border:0}
-	p{-webkit-margin-befor:0} /* annuler les valeurs par défaut navigateur */
+body, h1, h2, ul, li, nav, article, section { margin: 0; padding:0; border:0;}
+	p{-webkit-margin-before:0;} /* annuler les valeurs par défaut navigateur */
 
 
-#bloc-page
-{
-    width: 1200px;
-    margin: auto;
-	 background-color:#FFF8DC ;
-}
-body 
+#bloc-page{margin: auto; background-color:#FFF8DC ;}
+body{ font-family: 'Trebuchet MS', Arial, sans-serif; color: #181818;}
 
- 
- { font-family: 'Trebuchet MS', Arial, sans-serif;
-    color: #181818;
-}
-
-h1
-{
-    font-family: Arial, serif;
-    font-size: 45px;
+h1{font-family: Arial, serif;
     text-align: center;
-    color: #444;
-    
-}
+    color: #444;}
 
-h2
-{
-    border-bottom: solid 1px;
+h2{border-bottom: solid 1px;
     font-size: 30px;
     text-align: center;
     text-transform: uppercase;
-    color: #480;
-    
-}
+    color: #480;}
 
 /************************************* Header ***********************************************/
-#logo img
-{
-    width: 150px;
-    height: auto;
-}
+#logo img{height: auto;}
+
 #home{width: 50px;
 height: auto;
-margin-bottom:20px}
-	 
+margin-bottom:20px;}
 
 header
 {
@@ -71,59 +48,44 @@ nav li
     margin-right: 15px;
 }
 
-nav a
-{
-    font-size: 1.5em;
+nav a{
     color: #181818;
     
     text-decoration: none;
 	margin-bottom:50px;
-	padding:5px; 
-}
+	padding:5px;}
 
 
 nav a:hover
-{
-    color: #760001;box-shadow: 0px 4px 4px #1c1a19; border-radius: 5px;
-   
-}
+{color: #760001;box-shadow: 0px 4px 4px #1c1a19; border-radius: 5px;}
 
 #menu-categorie{display:flex;
-flex-direction:column}
+flex-direction:column;}
 
-#sous-liste{display:none;margin-top:10px;   margin-bottom:10px}
-#menu-categorie:hover > #sous-liste {display: block; }
-#sous-liste li a {font-size: 1em;box-shadow:0px ; }
-#sous-liste li a:hover {box-shadow:none;border-radius: none; text-decoration:underline }
+#sous-liste{display:none;margin-top:10px; margin-bottom:10px;}
+#menu-categorie:hover > #sous-liste {display: block;}
+#sous-liste li a {font-size: 1em;box-shadow:0px ;}
+#sous-liste li a:hover {box-shadow:none;border-radius: none; text-decoration:underline;}
 
 /*-----------------------------------------------debut du Diaporama----------------------------------------------- */
 
 /* boite du Diaporama */
 .DiaporamaBox {
   position: relative;
-  background-color: #f1f1f1;
-}
+  background-color: #f1f1f1;}
 
 /* boite du Diapo */
 .Diaporama {
  
-  text-align: center;
-}
+  text-align: center;}
 /* taille des image du Diaporama */
-.diapo {
-  width:100%;
-  height: auto;
-}
-
-
+.diapo {height: auto;}
 
 /*--------------------------------------------- fin du Diaporama-------------------------------------- */
 
 /*--------------------------------------------- début du histoire-------------------------------------- */
 #history
-{
-  background: url(histoire.jpg);
-}
+{background: url(histoire.jpg);}
 
 #histoire
 {
@@ -131,48 +93,23 @@ flex-direction:column}
   font-style: italic;
   font-size: 20px;
   text-align: center;
-  margin:50px;
-}
-#direction
-{
-  font-family: sans-serif;
-  text-align: center;
-  color: red;
+  margin:50px;}
   
-}
+#direction{font-family: sans-serif; text-align: center; color: red;}
+
 /*--------------------------------------------- fin du histoire-------------------------------------- */
 
 /*--------------------------------------------- début du selection-------------------------------------- */
-#selection
-{
- 
- display:flex;
- justify-content:space-between;
- margin:10px;
-}
+#selection {display:flex; margin:10px; justify-content:space-between;}
 
 .selBox1
-{
- display:flex;
- margin:5px
- 
- 
+{ display:flex; margin:5px;}
 
-}
-.selBox1 article  {
-	padding-left:20px;
-	padding-right:20px;  
-	text-align:justify;
-	background-color:#480
-	}
-	
-.selBox2{
- display:flex;
- margin:5px
- }
- 
-.selBox2 article  {padding-right:20px;padding-left:20px;text-align:justify; background-color:#480 }
+.selBox1 article { padding-left:20px; padding-right:20px; text-align:justify; background-color:#480;}
 
+.selBox2{ display:flex; margin:5px;}
+ 
+.selBox2 article {padding-right:20px; padding-left:20px; text-align:justify; background-color:#480;}
 
 #masquer{color:#760001;}
 
@@ -180,82 +117,66 @@ flex-direction:column}
 
 /*----------------------------------------------------------------- Footer-----------------------------------------------------------------*/
  
- #icone-contact{width: 50px;
- height: auto;}
-footer 
-{
- width:1200px;
-    background:  url('../images/bambou.jpg') no-repeat;
-    padding-top: 50px;
-}
-footer ul
-{
-    display: flex;justify-content: space-evenly;list-style-type: none;position: center;color:black;
-}
-footer a{ color:#FFF8DC ;font-size: 2em;text-decoration: none;
-}
-footer a:hover
-{
-    color: #760001;box-shadow: 0px 4px 4px #1c1a19; border-radius: 5px;padding:5px
-   
-}
-#copy{margin-left:400px ;color:#FFF8DC;font-size: 1.3em }
+ #icone-contact{width: 50px; height: auto;}
+ 
+footer{ background:  url('../images/bambou.jpg') no-repeat; padding-top: 50px;}
+
+footer ul{ display: flex; justify-content: space-evenly; list-style-type: none; position: center; color:black;}
+
+footer a{ color:#FFF8DC; text-decoration: none;}
+
+footer a:hover{ color: #760001; box-shadow: 0px 4px 4px #1c1a19; border-radius: 5px; padding:5px;}
+
+#copy{margin-left:400px; color:#FFF8DC; font-size: 1.3em;}
 
 /*--------------------------------------------------------------------------------------------- bouton connexion------------------------------------------*/
-.conex {  position: absolute;
-	right: 400px;
-	top:30px;}
-#bienvenu{ position: absolute;right: 380px;margin:5px
+.conex { position: absolute;
+	right: 4%;
+	top:35px;}
+#bienvenu{ position: absolute; right: 3%; top: 10px; margin:5px;
 	}
-button{ background-color:#DEB887; width:100px; height:auto;cursor:pointer;}
-button:hover {background-color:#FCDEDE;}
+
+#cookie{position: absolute;right: 3%; top: 25px; margin:5px;}
 
 /**********************************************************Responsivité version PC (MH)*******************************************************/
  @media only screen and (min-width:701px) {
-
+/************responsivité du header et du haut de la page (bannière, etc)***********/
+header{height:auto;}
 #logo img{width: 150px;}
-#bloc_page{width: 1200px;}
 h1{font-size:2em;}
+nav{width: 70%;right: 10%;position: absolute;}
 nav a{font-size: 1.5em;}
 
-#adresse{direction: wrap;}
-#map{width: 600px; margin:20px 50px 50px 50px;}
-input[type=submit] {width:20%;}
+/************responsivité du bloc principal (texte et résumés)******************/
+#bloc-page{width: 1200px;}
+.diapo {width: 1200px;}
+#selection{flex-direction: row;}
 
-#article1, #article2,#article3, #article4 {width:40%; height: 350px;}
- 
 /**************************responsivité du footer*******************************/
 footer {width:1200px;}
 footer a{font-size: 2em;}
-#copy{margin-left:400px; font-size: 1.3em;}
-#icone-contact{width: 50px; height: auto;}
-
-/*page journée type*/
-#image{height:200px;}
-#intro{font-size: 1.2em;}
 }
 
 /**********************************************************Version mobile (MH)*******************************************************/
 @media only screen and (max-width:700px) {
+/************responsivité du header et du haut de la page (bannière, etc)***********/
+header{height:90px;}
 #logo img{width: 70px;}
 h1{font-size:1.2em;}
-nav a{font-size: 1em;}
+nav{width:50%;right: 35%;top: 10%; position: absolute;}
+nav a{font-size: 0.9em;}
 
-#adresse{flex-direction:column; align-content:center;}
-#map{width: 520px; margin:20px 30px 30px 30px;}
-input[type=submit] {width:30%;}
+/************responsivité du bloc principal (texte et résumés)******************/
+#bloc-page{width: 600px;}
+.diapo {width: 600px;}
+#selection{flex-direction: column;}
 
+/**************************responsivité du footer*******************************/
 footer {width: 600px;}
 footer a{font-size: 1em;}
-#bloc_page{width: 600px;}
-#copy{margin-left:200px; font-size: 0.8em;}
-
-/*page journée type*/
-#image{height: 100px;}
-.paragraphe{width: 400px; height: auto; font-size:0.8em;}
-#intro{width:500px; font-size: 1em;}
-
-/*page parents*/
-#contenu {flex-direction: column;}
-#article1, #article2,#article3, #article4 {width:80%; height: 350px;}
 }
+
+/********bienvenue*******/
+
+button{margin:20px 0px 20px 90px; background-color:#DEB887; cursor:pointer;}
+button:hover {background-color:#FCDEDE;}
