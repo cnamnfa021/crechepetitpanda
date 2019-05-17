@@ -1,10 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang='fr'>
   <head>
-        <link href='css/style2.css' rel='stylesheet'>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta charset='utf-8'>
-        <title>Accueil</title>
+
+    <link href='css/style2.css' rel='stylesheet'>
+
+    <meta name="viewport" content="width=device-width" />
+
+    <meta name = "description" content = "Petitpanda, est une entreprise familiale. Une creche, ou des specialistes de la petite enfance
+      vous informent et offrent leurs conseils. Pour le bien-etre des tout petits."/>
+
+    <meta charset='utf-8'>
+
+     <title>Accueil, Petitpanda, creche, conseils, puericulture, nounou</title>
+
   </head>
     
   <body>
@@ -16,7 +24,7 @@
         <p id="cookie">
           <?php
 // on définit une durée de vie de notre cookie (en secondes) pour le tester il est régler à 20 secondes (sinon 6 mois = 182*24*3600).
-            $temps = 20;
+            $temps = 133*24*3600;
 
 // on envoie un cookie de nom firstcoming portant la valeur ""
 
@@ -56,11 +64,11 @@
      <header>
 
 	   <div id="logo">
-         <img src="images/logo.png" alt="Logo de site" />
+         <img src="images/logo.png" alt="Logo du site" title="Petitpanda"/>
        </div>
 	   <nav>
          <ul>
-           <li> <a href="index.php"><img id="home" src="images/home.jpg" /></a></li>
+           <li> <a href="index.php"><img id="home" src="images/home.jpg" alt="icone accueil" title="accueil"/></a></li>
 		   <li><a href="conseils-informations.php">Conseils et informations</a></li>
            <li><a href="journee-type-de-lenfant.php"> Journée type de l'enfant</a></li>
 		   <li><a href="pre-inscription.php"> Prè-inscription </a></li>
@@ -71,35 +79,44 @@
      </header>
             
      <main>
-       <h1>Accueil</h1>
+       <h2>Accueil</h2>
          <div class="DiaporamaBox">
            <div class="Diaporama">
-             <img src="images/diapo1.png" class="diapo">
+             <img src="images/diapo1.png" class="diapo" alt= "banniere" title="enfants jeux">
            </div>
          </div>
               
          <section id="History"><!-- fond ne fonction pas a vérifier -->
-           <h2>histoire de PetitPanda</h2>
+           <h1>histoire de la creche PetitPanda</h1>
            <article id="histoire"><!-- faute à vérifier-->
              <p>
-		     Bonjour cher visiteur, je veux vous introduire l'histoire de notre crèche.
-             Son nom "PetitPanda" vient du panda roux qui est le petit panda de la nature,
-             mais également de notre fils, qui enfant était tout potelé avec des joues bien roux.
+		     Bonjour cher visiteur, je voudrais vous introduire l'histoire de notre <strong>crèche</strong>.
+             Son nom "PetitPanda" vient du <em>panda roux</em> qui est le petit panda de la <strong>nature</strong>,
+             mais également de notre <em>fils</em>, qui <strong>nourrisson</strong> était tout potelé avec des joues bien roux.
 		     </p>
              <p>
-			 PetitPanda était créé en 2016 par mon mari et moi-même. Cette crèche fut le rêve d'une vie.
+			 PetitPanda a été créé en 2016 par mon mari et moi-même. Cette crèche fut le rêve d'une vie.
 			 </p>
+
+            <h2>Au service de la petite enfance</h2>
 		     <p>
-             Nos avons voulu apporté aux  jeunes parents actifs la meilleur structure et organisation pour le bien-être de leurs enfants.
-             Elle a comme capacité d’accueillir  12 enfants à temps plein ou à temps partiel, répartis en deux groupes : 
+             Nos avons voulu apporter aux jeunes <strong>parents</strong> actifs, un <strong>service</strong> offrant la meilleure <strong>structure</strong> et
+			 <strong>organisation</strong> pour le <em>bien-être</em> de leurs <strong>enfants</strong>.
+             Elle a une capacité d’<strong>accueil</strong> de 12 <strong>enfants</strong> à <strong>temps</strong> 
+			 plein ou à <strong>temps</strong> partiel, répartis en deux groupes : 
 			 </p>
-             <p>- «MicroPanda» pour les enfant de 2 à 18 mois.
+             <p>- «MicroPanda» pour le <strong>nourrisson</strong> de 2 à 18 mois.
 			 </p>
-             <p>- «MiniPanda» pour les enfant de 18 mois à 3 ans.
+             <p>- «MiniPanda» pour le <strong>nourrisson</strong> et l'<strong>enfant</strong> de 18 mois à 3 ans.
 			 </p>
              <p>
-			 Elle est composée d'une équipe de 5 à 6 professionnels spécialisés dans la petite enfance
-            (responsable, éducateur de jeunes enfants, auxiliaires de puériculture, accompagnatrices, et personnel chargé de l’entretien des locaux).
+			 Elle est composée d'une équipe de 5 à 6 professionnels spécialisés dans la <strong>petite enfance</strong>
+            (responsable, éducateur de jeunes enfants, <strong>nounou</strong> <strong>auxiliaire</strong> de puériculture, accompagnatrices, et personnel chargé de l’entretien des locaux).
+			Tous et toutes ont à <strong>coeur</strong> de créer et d'entretenir le meilleur environnement possible. Où les plus <strong>petits</strong> peuvent s'épanouir et s'éveiller,
+			au travers de leurs <strong>jeux</strong> et de l'attention que nous leur donnons. Cela que ce soit à l'heure du <em>repas</em> ou à l'heure de la <em>sieste</em>.
+			Chaque aspect de la <strong>vie</strong> des petits est importante, il s'agit souvent de leur premier contact avec le <strong>monde</strong> extérieur. La première séparation avant
+			leurs premiers pas à l'<strong>école</strong> <strong>maternelle</strong>. Le jardin d'enfants est aussi l'occasion de les aider à être prêt pour cette étape importante
+			de leur <strong>enfance</strong>.
 			</p>
            </article>
          </section>
@@ -111,7 +128,7 @@
 			   <h3> Conseils et informations </h3>
 			   <article id="resume-conseils"> 
 			     <p>
-			    Dans cette page vous trouverez des informations vous concernant ainsi des conseils pratiques qui peuvant vous aider à mieux comprendre votre enfant!
+			    Dans cette page vous trouverez des informations vous concernant ainsi des conseils pratiques qui peuvent vous aider à mieux comprendre votre enfant!
                  </p>	
                 
 			   </article>
@@ -138,7 +155,7 @@
 			   <article id="resume-formulaire"> 
 			     <p>
 			     Vous trouvez le formulaire qui vous permettra de faire une pré-inscription en ligne, comme vous pouvez aussi l'imprimer, le remplir et l'envoyer!
-			     Tout simplemment il vous facilte la vie en un clic!
+			     Tout simplement il vous facilite la vie en un clic!
    			     </p>
 			   </article>
 			   <a id="masquer" href="#ici" onClick="masquerafficher(this,'formulaire')">Masquer le résumé</a> <!--appel à la fonction masquerafficher() pour afficher/masquer le résumé des articles-->
@@ -156,7 +173,7 @@
 	         <ul>
                <li> <a href="index.html">Accueil</a></li>
                <li><a href="mention-legales.php">Mentions légales</a></li>
-               <li><a href="contact.php"><img id="icone-contact" src="images/icone.png" /></a></li>
+               <li><a href="contact.php"><img id="icone-contact" src="images/icone.png" alt="icone contact" title="contact"/></a></li>
              </ul>
 		   </div>
 
