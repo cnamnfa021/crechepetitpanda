@@ -146,7 +146,7 @@
 	  <footer>
 	       <div>
 	         <ul>
-               <li> <a href="index.html">Accueil</a></li>
+               <li> <a href="index.php">Accueil</a></li>
                <li><a href="mention-legales.php">Mentions légales</a></li>
                <li><a href="contact.php"><img id="icone-contact" src="images/icone.png" /></a></li>
              </ul>
