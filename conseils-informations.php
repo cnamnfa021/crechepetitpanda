@@ -2,55 +2,7 @@
 <html>
   <head>
     <meta charset='utf-8'/>
-    <title> conseils et informations </title>
-    <link rel='stylesheet' href='css/styleamina.css' />
-  </head>
-  <body>
-    <div id="bloc_page">
-	  <div><!-- Gestion du bouton connexion/déconnexion-->
-		<?php
-		  session_start();
-		  include "inc/connexion.inc.php"; /*connexion à la bdd "projetcnam"*/
-		
-		  if(isset($_SESSION['login'])) {
-		?>
-		  <p id="bienvenu"><!-- affichage du nom de la personne connectée -->
-			<?php echo 'Bienvenue ' . $_SESSION["login"];?>
-		  </p>
-			<!-- Création du bouton déconnexion qui redirige vers la pge déconnexion -->
-			<button class="conex" onClick="location.href='deconnexion.php';">Déconnexion</button>
-			
-		   <?php
-			  }else {
-			?>
-		   <!-- Création du bouton connexion qui redirige vers la page connexion-->
-			 <button class="conex" onClick="location.href='connexion.php';">Connexion</button>
-		
-		   <?php 
-			  }
-		  ?>
-	   </div>
-	
-	  <header>
-		 <div id="logo">
-	       <img src="images/logo.png" alt="Logo de site" />
-		 </div>
-		 <nav>
-		   <ul>
-			  <li> <a href="index.php"><img id="home" src="images/home.jpg" /></a></li>
-			  <li><a href="conseils-informations.php">Conseils et informations</a></li>
-			  <li><a href="journee-type-de-lenfant.php"> Journée type de l'enfant</a></li>
-			  <li><a href="pre-inscription.php"> Pré-inscription </a></li>
-			  <li><a href="contact.php">Contact</a></li>
-		   </ul>
-		 </nav>
-	   </header>
-            
-	<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset='utf-8'/>
-    <title> conseils et informations </title>
+    <title> pre-inscription </title>
     <link rel='stylesheet' href='css/styleamina.css' />
   </head>
   <body>
@@ -63,10 +15,10 @@
 // on définit une durée de vie de notre cookie (en secondes) pour le tester il est régler à 20 secondes (sinon 6 mois = 182*24*3600).
             $temps = 20;
 
-// on envoie un cookie de nom firstadvice portant la valeur ""
+// on envoie un cookie de nom firstregister portant la valeur ""
 
-          if(!isset($_COOKIE['firstadvice'])){
-            setcookie ("firstadvice", "_", time() + $temps);
+          if(!isset($_COOKIE['firstregister'])){
+            setcookie ("firstregister", "_", time() + $temps);
             echo "Bienvenue";
           }
 
@@ -98,8 +50,7 @@
             <?php } ?>
       </div>
 
-	<header>
-
+      <header>
 	   <div id="logo">
          <img src="images/logo.png" alt="Logo de site" />
        </div>
@@ -108,150 +59,206 @@
            <li> <a href="index.php"><img id="home" src="images/home.jpg" /></a></li>
 		   <li><a href="conseils-informations.php">Conseils et informations</a></li>
            <li><a href="journee-type-de-lenfant.php"> Journée type de l'enfant</a></li>
-		   <li><a href="pre-inscription.php"> Prè-inscription </a></li>
+		   <li><a href="pre-inscription.php"> Pré-inscription </a></li>
            <li><a href="contact.php">Contact</a></li>
 	     </ul>
        </nav>
-     </header>
-            
-	
-      <div id="entete">
-	    <img id="imgbaniere" src="images/parent.jpg" />
+      </header>
+
+      <div>
+	  <img id="imgbaniere" src="images/pre-inscription.jpg" />
 	  </div>
-	  
+	
       <div id="titre-principal1">
-         
-		 <h1> Conseils et informations </h1>    
-    
+        <h1> <strong>Pré-inscription </strong></a></h1> 
+      </div>
+
+     <div id="mapage"> <!-- début de zone  à imprimer -->
+	   <div id="introduction">
+         <p> <strong> Ce document est une demande d’inscription, merci de le compléter et de le remettre à la <strong>microcrèche</strong> le plus rapidement possible : </strong> </p>
+         <ul> <strong>
+          <li> par email : contact@PetitPenda.fr </li>
+	      <li> par courrier : Micro-crèche PetitPanda – Place INGRES– 37000 TOURS </li>
+	     </strong> </ul>
+	     <p><strong>Nous vous contacterons dans les meilleurs délais pour confirmer ou non votre inscription (suivant les places disponibles).</strong> </p>
 	   </div>
-   
-	  
-      <div id=" alerte" >
-	  <p id="labienvenue"> Bienvenue dans votre espace </p>
-	  <?php include "inc/connexion.inc.php"; /*connexion à la bdd "projetcnam"*/
-       $requete='SELECT content_description FROM content WHERE content_title="information"';
-       $reponse=$con->query($requete);
-	   while ($donnees = $reponse->fetch()) {?>
-          <img id="img" src="images/alerte.jpg" alt="image de l'alerte" > <strong id="information"> <?php echo $donnees['content_description']?> </strong>
-	  </div>
-	   <?php } ?>
-      <section>
-	  
- 		<article id="contenu">
-		 <?php
-		 include "inc/connexion.inc.php"; /*connexion à la bdd "projetcnam"*/
-         $requete='SELECT * FROM content WHERE content_nompage="Conseils" ORDER BY content_id';//Il faut mettre ORDER BY id pour que les articles s'affichent du premier au dernier posté.
-         $reponse=$con->query($requete);
-        //affiche tout les titres et les descriptions associées.
-		$i=1; //compteur pour incrémenter "id" de div (utilisé dans fichier css)
-         while ($donnees = $reponse->fetch()) {
-		 ?>
-		    <div id="<?php echo "article".$i?>"> 
-		      <h2>  <?php echo $donnees['content_title'] ?> </h2>
-		      <p class="conseil">
-			   <?php echo $donnees['content_description'] ?>
-			  </p>
-            </div>
-		 <?php 
-		 $i=$i+1; //incrémenter numéro d'article afin d'afficher la bonne image en fond d'écran
-		 } ?>
-		 </article>
-			
-   	    <footer>
-	       <div>
-	         <ul>
-               <li> <a href="index.html">Accueil</a></li>
-               <li><a href="mention-legales.php">Mentions légales</a></li>
-               <li><a href="contact.php"><img id="icone-contact" src="images/icone.png" /></a></li>
-             </ul>
-		   </div>
-		   <div id="copy"> 
-		   <?php 
-		   /* récupération noms des créateures du site de la base de données======================*/ 
-		      include "inc/connexion.inc.php";
-			  $requete="SELECT user_login FROM user WHERE user_statut='createur'";
-			  $resultat=$con->query($requete);?>
-		      <p> <strong> <?php 
-			  echo 'Copyright $ ';
-			  while($donnees=$resultat->fetch()){ 
-			    echo $donnees['user_login'];
-			    echo ' $ ';
-			  } ?>
-			  </strong></p>	 
-		   </div>
-		 </footer>
-	</div>
+       <form method="post" action="traitement.php">
+         <fieldset id="demande"> 
+           <legend> Votre demande : </legend>
+	         <fieldset>
+               <legend> Le père de l'enfant </legend> <!-- Titre du 1er fieldset -->
+                 <p>
+                 <label for="nom">Nom :</label>
+                 <input type="text" name="nom" id="nom"  size="30" maxlength="10" required />
+		         </p>
+		         <p>
+		         <label for="Prènom"> Prènom :</label>
+                 <input type="text" name="Prènom" id="Prènom" size="30" maxlength="10" required />
+                 </p>		 
+		         <p>
+		         <label for="Profession">Profession  :</label>
+                 <input type="text" name="Profession" id="Profession" size="30" maxlength="10" required />
+		         </p>
+		         <p>
+		         <label for="Adresse">Adresse :</label>
+                 <input type="text" name="Adresse" id="Adresse" size="30" maxlength="30" required />
+		         </p>
+		         <p>
+		         <label for="Tel">Tel :</label>
+                 <input type="text" name="Tel" id="Tel" placeholder="0123456789" size="30" maxlength="10" required />
+		         </p>
+	         </fieldset>
 	
-	</body>
+	         <fieldset>
+               <legend> Le mère  de l'enfant </legend> <!-- Titre du 2ème fieldset -->
+                 <p>
+                 <label for="nom">Nom :</label>
+                 <input type="text" name="nom" id="nom" size="30" maxlength="10" required />
+		         </p>
+                 <p>	   
+                 <label for="Prènom"> Prènom :</label>
+                 <input type="text" name="Prènom" id="Prènom" size="30" maxlength="10" required />
+		         </p>
+                 <p>		   
+                 <label for="Profession">Profession  :</label>
+                 <input type="text" name="Profession" id="Profession" size="30" maxlength="10" required  />
+		         </p>
+                 <p>		  
+                 <label for="Adresse">Adresse :</label>
+                 <input type="text" name="Adresse" id="Adresse" size="30" maxlength="10" required />
+		         </p>
+                 <p>		   
+                 <label for="Tel">Tel :</label>
+                 <input type="text" name="Tel" id="Tel" placeholder="0123456789" size="30" maxlength="10" required />
+                 </p>
+	         </fieldset>
 	
-</html>
-	   <div id="entete">
-		<img id="imgbaniere" src="images/parent.jpg" />
+	         <fieldset>
+               <legend> Le résponsable légal <sup>*</sup>	   </legend> <!-- Titre du 3ème fieldset -->
+                 <p>
+                 <label for="nom">Nom :</label>
+                 <input type="text" name="nom" id="nom" size="30" maxlength="10" required />
+		         </p>
+		         <p>
+		         <label for="Prènom"> Prènom :</label>
+                 <input type="text" name="Prènom" id="Prènom"  size="30" maxlength="10" />
+		         </p>
+		         <p>
+		         <label for="Profession">Profession  :</label>
+                 <input type="text" name="Profession" id="Profession" size="30" maxlength="10" />
+		         </p>
+		         <p>
+		         <label for="Adresse">Adresse :</label>
+                 <input type="text" name="Adresse" id="Adresse" size="30" maxlength="10" />
+		         </p>
+		         <p>
+		         <label for="Tel">Tel :</label>
+                 <input type="text" name="Tel" id="Tel" size="30" maxlength="10" />
+		         </p>
+		         <p> 
+		         <sup>*</sup>(si père ou mère, n’indiquez que le nom et le prénom)
+		         </p>
+	         </fieldset>
+	
+	         <fieldset>
+               <legend> L'enfant </legend> <!-- Titre du 4ème fieldset -->
+                 <p>
+                 <label for="nom">Nom :</label>
+                 <input type="text" name="nom" id="nom" size="30" maxlength="10" required />
+		         </p>
+		         <p>
+		         <label for="Prènom"> Prènom :</label>
+                 <input type="text" name="Prènom" id="Prènom" size="30" maxlength="10" required />
+		         </p>
+		         <p>
+		         <label for="Adresse">Adresse :</label>
+                 <input type="text" name="Adresse" id="Adresse"  size="30" maxlength="10" required />
+		         <p>
+		         <label for="Date naissance">Date naissance  :</label>
+                 <input type="date" name="Date naissance" id="Date naissance" placeholder="Format: JJ/MM/AA" size="30" maxlength="10" />
+		         </p>
+		         <p>
+		         <strong>Si vous êtes enceinte (à partir du 6ème mois) : </strong>
+		         </p>
+                 <p>
+	             <label for="accouchement">Date prévue de l'accouchement :</label>
+                 <input type="date" name="accouchement" id="accouchement" placeholder="Format: JJ/MM/AA" size="30" maxlength="10" />
+		         </p>
+		         <p>
+		         <strong>Dès la naissance, merci de contacter la microcrèche pour confirmer la demande d’inscription et donner la date de naissance ainsi que le prénom de votre enfant.</strong>
+		         </p>
+		         <p>
+	             <label for="entrée">Date prévue d’entrée à la microcrèche :</label>
+                 <input type="date" name="entrée" id="entrée" placeholder="Format: JJ/MM/AA" size="30" maxlength="10" />
+		         </P>
+	             <p> 
+		         Jours souhaités(cochez les cases) : 
+		         </p>
+		         <p> 
+                 <input type="checkbox" name="Lundi" id="Lundi" /> <label for="Lundi"> Lundi </label>
+		         </p>
+		         <p>
+                 <input type="checkbox" name="Mardi" id="Mardi" /> <label for="Mardi">Mardi</label>
+		         </p>
+		         <p>
+                 <input type="checkbox" name="Mercredi" id="Mercredi" /> <label for="Mercredi">Mercredi</label>
+                 </p>
+		         <p>
+		         <input type="checkbox" name="Jeudi" id="Jeudi" /> <label for="Jeudi">Jeudi</label>
+		         </p>
+		         <p>
+	             <input type="checkbox" name="Vendredi" id="Vendredi" /> <label for="Vendredi">Vendredi</label>
+                 </p>
+	             <p>
+   		         Nombres d'heures souhaités ( par semaine): 
+		         </p>
+		         <p> 
+	             <input type="radio" name="heures" value="moins de 15h par semaine" id="riche" /> <label for="riche">moins de 10h </label>
+		         </p>
+		         <p>
+                 <input type="radio" name="heures" value="entre 15h et 20h" id="celebre" /> <label for="entre 10h et 20h">entre 10h et 20h</label>
+		         </p>
+		         <p>
+                 <input type="radio" name="heures" value="entre 20h et 35h" id="entre 20h et 35h" /> <label for="entre 20h et 35h"> entre 20h et 35h</label>
+		         </p>
+		         <p>
+                 <input type="radio" name="heures" value="plus de 35h" id="plus de 35h" /> <label for="plus de 35h">plus de 35h</label>
+		         </p>
+             </fieldset>
+	       </fieldset>
+		   
+	         <p>
+	         <label for="email"> Email :</label>
+             <input type="email" name="email" id="email" size="30" maxlength="10" /> 
+	         </p>
+             <p>
+	         <label for="commentaire"> Commentaires eventuels  :</label>
+			 </p>
+			 <p>
+             <textarea name="commentaire" id="commentaire" rows="10" cols="50"/></textarea>
+	         </p>
+	         <p> 
+	         <input type="submit" value="Envoyer" /> 
+	         </p>
+	   </form>
+     </div> <!-- fin de zone zone à imprimer -->
+	 
+	 <button onClick="imprimer('mapage')">Imprimer</button>  <!--bouton imprimer de la zone définie -->
+
+     <footer>
+	   <div>
+	     <ul>
+           <li> <a href="index.php">Accueil</a></li>
+           <li><a href="#">Mentions légales</a></li>
+           <li><a href="contact.php"><img id="icone-contact" src="images/icone.png" /></a></li>
+         </ul>
 	   </div>
-		  
-	   <div id="titre-principal1">
-			 
-		 <h1> Conseils et informations </h1>    
-		
+	   <div id="copy"> 
+	     <p> <strong>Copyright A.ARBANE et S.HASSAN SAID </strong></p>
 	   </div>
-   
-	  
-      <div id=" alerte" >
-	  <p id="labienvenue"> Bienvenue dans votre espace </p>
-	  <?php include "inc/connexion.inc.php"; /*connexion à la bdd "projetcnam"*/
-       $requete='SELECT content_description FROM content WHERE content_title="information"';
-       $reponse=$con->query($requete);
-	   while ($donnees = $reponse->fetch()) {?>
-          <img id="img" src="images/alerte.jpg" alt="image de l'alerte" > <strong id="information"> <?php echo $donnees['content_description']?> </strong>
-	  </div>
-	   <?php } ?>
-      <section>
-	  
- 		<article id="contenu">
-		 <?php
-		 include "inc/connexion.inc.php"; /*connexion à la bdd "projetcnam"*/
-         $requete='SELECT * FROM content WHERE content_nompage="Conseils" ORDER BY content_id';//Il faut mettre ORDER BY id pour que les articles s'affichent du premier au dernier posté.
-         $reponse=$con->query($requete);
-        //affiche tout les titres et les descriptions associées.
-		$i=1; //compteur pour incrémenter "id" de div (utilisé dans fichier css)
-         while ($donnees = $reponse->fetch()) {
-		 ?>
-		    <div id="<?php echo "article".$i?>"> 
-		      <h2>  <?php echo $donnees['content_title'] ?> </h2>
-		      <p class="conseil">
-			   <?php echo $donnees['content_description'] ?>
-			  </p>
-            </div>
-		 <?php 
-		 $i=$i+1; //incrémenter numéro d'article afin d'afficher la bonne image en fond d'écran
-		 } ?>
- 		</article>
-			
-   	    <footer>
-	       <div>
-	         <ul>
-               <li> <a href="index.html">Accueil</a></li>
-               <li><a href="mention-legales.php">Mentions légales</a></li>
-               <li><a href="contact.php"><img id="icone-contact" src="images/icone.png" /></a></li>
-             </ul>
-		   </div>
-		   <div id="copy"> 
-		   <?php 
-		   /* récupération noms des créateures du site de la base de données======================*/ 
-		      include "inc/connexion.inc.php";
-			  $requete="SELECT user_login FROM user WHERE user_statut='createur'";
-			  $resultat=$con->query($requete);?>
-		      <p> <strong> <?php 
-			  echo 'Copyright $ ';
-			  while($donnees=$resultat->fetch()){ 
-			    echo $donnees['user_login'];
-			    echo ' $ ';
-			  } ?>
-			  </strong></p>	 
-		   </div>
-		 </footer>
-	</div>
-	
-	</body>
-	
+	 </footer>
+	 
+  </div> <!-----fin blog de page---->
+  <script src="js/fonctionamina.js" type="text/javascript"> </script>
+ </body>
 </html>
