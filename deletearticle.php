@@ -63,19 +63,32 @@
 
             <?php } ?>
       </div>
+	
+	   <header>
 
-	 <header>
-
+		 <nav>
+		   <ul>
+			  <li> <a href="index.php"><img id="home" src="images/home.jpg" /></a></li>
+			  <li><a href="conseils-informations.php">Conseils et informations</a></li>
+			  <li><a href="journee-type-de-lenfant.php"> Journée type de l'enfant</a></li>
+			  <li><a href="pre-inscription.php"> Pré-inscription </a></li>
+			  <li><a href="contact.php">Contact</a></li>
+		   </ul>
+		 </nav>
+	    </header>
+		
+		<div id="titre-principal1">
+			 
+		 <h1> Delete </h1>    
+		
+	   </div>
+	  
       <section>
 
-  <!-- connexion à la bdd "projetcnam" avec try et catch pour envoyer un message d'erreur si il y en a besoin (évite de montrer les données
-  cachées qui s'affichent avec le message par défaut !). -->
-
       <?php
-        try{ $bdd = new PDO('mysql:host=localhost;dbname=projetcnam-modif;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)); }
-        catch(Exception $e) { die('Erreur : '.$e->getMessage()); }
+       include "inc/connexion.inc.php"; /*connexion à la bdd "projetcnam"*/
 
-        $req = $bdd->prepare('DELETE FROM content WHERE content_id= :id');
+        $req = $con->prepare('DELETE FROM content WHERE content_id= :id');
         $req->execute(array(
         'id' => $_GET['id'],
         ));
@@ -91,18 +104,29 @@
       </section>
 
 	  <footer>
-	   <div>
-	     <ul>
-           <li> <a href="index.html">Accueil</a></li>
-           <li><a href="mentions_légales.php">Mentions légales</a></li>
-           <li><a href="contact.php">Envoyer un message<img id="icone-contact" src="images/icone.png" /></a></li>
-         </ul>
-	   </div>
-	   <div id="copy"> 
-	     <p> <strong>Copyright A.ARBANE et M.Harel </strong></p>
-	   </div>
-	 </footer>
-
+	       <div>
+	         <ul>
+               <li> <a href="index.html">Accueil</a></li>
+               <li><a href="mention-legales.php">Mentions légales</a></li>
+               <li><a href="contact.php"><img id="icone-contact" src="images/icone.png" /></a></li>
+             </ul>
+		   </div>
+		   <div id="copy"> 
+		   <?php 
+		   /* récupération noms des créateures du site de la base de données======================*/ 
+		      include "inc/connexion.inc.php";
+			  $requete="SELECT user_login FROM user WHERE user_statut='createur'";
+			  $resultat=$con->query($requete);?>
+		      <p> <strong> <?php 
+			  echo 'Copyright $ ';
+			  while($donnees=$resultat->fetch()){ 
+			    echo $donnees['user_login'];
+			    echo ' $ ';
+			  } ?>
+			  </strong></p>	 
+		   </div>
+		 </footer>
+   </div>
     </div>
 
   </body>
