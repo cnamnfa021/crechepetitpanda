@@ -1,4 +1,4 @@
-!doctype html>
+<!doctype html>
 
 <html lang='fr'>
   
@@ -19,11 +19,52 @@
   <body>
 
     <div id="bloc_page">
+
+      <div id="session"><!-- Gestion du bouton connexion/déconnexion-->
+
+        <a href="index.php" id="logo"><img src="images/logo.png" alt="Logo de site" title="Petitpanda" /></a>
+
+        <p id="cookie">
+          <?php
+// on définit une durée de vie de notre cookie (en secondes) pour le tester il est régler à 20 secondes (sinon 6 mois = 182*24*3600).
+            $temps = 20;
+
+// on envoie un cookie de nom firstday portant la valeur ""
+
+          if(!isset($_COOKIE['firstday'])){
+            setcookie ("firstday", "_", time() + $temps);
+            echo "Bienvenue";
+          }
+
+          ?>
+          </p>
+
+          <?php
+            session_start();
+            include "inc/connexion.inc.php"; /*connexion à la bdd "projetcnam"*/
+
+            if(isset($_SESSION['login'])) {
+          ?>
+          <p id="bienvenu"><!-- affichage du nom de la personne connectée -->
+            <?php echo 'Bienvenue ' . $_SESSION["login"];?>
+          </p>
+<!-- Création du bouton déconnexion qui redirige vers la pge déconnexion -->
+          <p class="boutonco">
+            <button class="conex" onClick="location.href='deconnexion.php';">Déconnexion</button>
+          </p>
+
+          <?php
+            }else {
+          ?>
+<!-- Création du bouton connexion qui redirige vers la page connexion-->
+          <p class="boutonco">
+            <button class="conex" onClick="location.href='connexion.php';">Connexion</button>
+          </p>
+
+            <?php } ?>
+      </div>
+
 	 <header>
-	   <div id="logo">
-         <img src="images/logo.png" alt="Logo de site" />
-       </div>
-     </header>
 
       <section>
 

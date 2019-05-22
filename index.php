@@ -6,12 +6,18 @@
 
     <meta name="viewport" content="width=device-width" />
 
-    <meta name = "description" content = "Petitpanda, est une entreprise familiale. Une creche, ou des specialistes de la petite enfance
-      vous informent et offrent leurs conseils. Pour le bien-etre des tout petits."/>
+    <meta name = "description" content = "Petitpanda, est une garderie pour les tout petits, avant la maternelle. Une creche, ou chaque nounou
+      vous informe et offre ses conseils. Pour le bien-etre des tout petits."/>
 
     <meta charset='utf-8'>
 
-     <title>Accueil, Petitpanda, creche, conseils, puericulture, nounou</title>
+    <meta name="keywords" content="accueil, nounou, petits, garde, maternelle, enfants, parents, famille, garderie">
+
+    <meta name="author" content="Marc Harel et Amina Arbane">
+
+    <meta name="publisher" content="Marc Harel et Amina Arbane" />
+
+     <title>Accueil de Petitpanda, garderie des petits</title>
 
   </head>
     
@@ -19,17 +25,19 @@
 
     <div id="bloc-page">
 
-      <div><!-- Gestion du bouton connexion/déconnexion-->
+      <div id="session"><!-- Gestion du bouton connexion/déconnexion-->
+
+        <a href="index.php" id="logo"><img src="images/logo.png" alt="Logo de site" title="Petitpanda" /></a>
 
         <p id="cookie">
           <?php
 // on définit une durée de vie de notre cookie (en secondes) pour le tester il est régler à 20 secondes (sinon 6 mois = 182*24*3600).
-            $temps = 133*24*3600;
+            $temps = 20;
 
-// on envoie un cookie de nom firstcoming portant la valeur ""
+// on envoie un cookie de nom firstday portant la valeur ""
 
-          if(!isset($_COOKIE['firstcoming'])){
-            setcookie ("firstcoming", "_", time() + $temps);
+          if(!isset($_COOKIE['firstday'])){
+            setcookie ("firstday", "_", time() + $temps);
             echo "Bienvenue";
           }
 
@@ -46,7 +54,7 @@
             <?php echo 'Bienvenue ' . $_SESSION["login"];?>
           </p>
 <!-- Création du bouton déconnexion qui redirige vers la pge déconnexion -->
-          <p>
+          <p class="boutonco">
             <button class="conex" onClick="location.href='deconnexion.php';">Déconnexion</button>
           </p>
 
@@ -54,19 +62,16 @@
             }else {
           ?>
 <!-- Création du bouton connexion qui redirige vers la page connexion-->
-          <p>
+          <p class="boutonco">
             <button class="conex" onClick="location.href='connexion.php';">Connexion</button>
           </p>
 
             <?php } ?>
       </div>
 
-     <header>
+      <header>
 
-	   <div id="logo">
-         <img src="images/logo.png" alt="Logo du site" title="Petitpanda"/>
-       </div>
-	   <nav>
+        <nav>
          <ul>
            <li> <a href="index.php"><img id="home" src="images/home.jpg" alt="icone accueil" title="accueil"/></a></li>
 		   <li><a href="conseils-informations.php">Conseils et informations</a></li>
@@ -74,12 +79,12 @@
 		   <li><a href="pre-inscription.php"> Prè-inscription </a></li>
            <li><a href="contact.php">Contact</a></li>
 	     </ul>
-       </nav>
+         </nav>
 
-     </header>
-            
+      </header>
+
      <main>
-       <h2>Accueil</h2>
+       <h1>Accueil</h1>
          <div class="DiaporamaBox">
            <div class="Diaporama">
              <img src="images/diapo1.png" class="diapo" alt= "banniere" title="enfants jeux">
@@ -87,15 +92,16 @@
          </div>
               
          <section id="History"><!-- fond ne fonction pas a vérifier -->
-           <h1>histoire de la creche PetitPanda</h1>
+           <h2>histoire de la garderie PetitPanda</h2>
            <article id="histoire"><!-- faute à vérifier-->
              <p>
 		     Bonjour cher visiteur, je voudrais vous introduire l'histoire de notre <strong>crèche</strong>.
-             Son nom "PetitPanda" vient du <em>panda roux</em> qui est le petit panda de la <strong>nature</strong>,
-             mais également de notre <em>fils</em>, qui <strong>nourrisson</strong> était tout potelé avec des joues bien roux.
+             Son nom "PetitPanda" vient du panda roux qui est le <strong>petit</strong> panda de la nature,
+             mais également de notre fils, qui <strong>nourrisson</strong> était tout potelé avec des joues et bien roux.
 		     </p>
+
              <p>
-			 PetitPanda a été créé en 2016 par mon mari et moi-même. Cette crèche fut le rêve d'une vie.
+			 PetitPanda a été créé en 2016 par mon mari et moi-même. Cette <strong>garderie</strong> fut le rêve d'une <strong>vie</strong>.
 			 </p>
 
             <h2>Au service de la petite enfance</h2>
@@ -158,7 +164,7 @@
 			     Tout simplement il vous facilite la vie en un clic!
    			     </p>
 			   </article>
-			   <a id="masquer" href="#ici" onClick="masquerafficher(this,'formulaire')">Masquer le résumé</a> <!--appel à la fonction masquerafficher() pour afficher/masquer le résumé des articles-->
+			   <a id="masquer" href="#ici" onClick="masquerafficher(this,'resume-formulaire')">Masquer le résumé</a> <!--appel à la fonction masquerafficher() pour afficher/masquer le résumé des articles-->
 			 </article>
 			 </article>
 		</div>

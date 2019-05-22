@@ -21,6 +21,12 @@ h2{border-bottom: solid 1px;
 /************************************* Header ***********************************************/
 #logo img{height: auto;}
 
+#logo {margin-left:-400%; margin-top: 80%;}
+
+#cookie {margin-top:-50px; text-align: center;}
+
+#bienvenu{text-align: center;}
+
 #home{width: 50px;
 height: auto;
 margin-bottom:20px;}
@@ -130,13 +136,9 @@ footer a:hover{ color: #760001; box-shadow: 0px 4px 4px #1c1a19; border-radius: 
 #copy{margin-left:400px; color:#FFF8DC; font-size: 1.3em;}
 
 /*--------------------------------------------------------------------------------------------- bouton connexion------------------------------------------*/
-.conex { position: absolute;
-	right: 4%;
-	top:35px;}
-#bienvenu{ position: absolute; right: 3%; top: 10px; margin:5px;
-	}
+.boutonco {justify-content: center; display: flex; align-items: center;}
 
-#cookie{position: absolute;right: 3%; top: 25px; margin:5px;}
+.conex{margin:0;}
 
 /**********************************************************Responsivité version PC (MH)*******************************************************/
  @media only screen and (min-width:701px) {
@@ -144,7 +146,7 @@ footer a:hover{ color: #760001; box-shadow: 0px 4px 4px #1c1a19; border-radius: 
 header{height:auto;}
 #logo img{width: 150px;}
 h1{font-size:2em;}
-nav{width: 70%;right: 10%;position: absolute;}
+nav{width: 70%;}
 nav a{font-size: 1.5em;}
 
 /************responsivité du bloc principal (texte et résumés)******************/
@@ -160,10 +162,10 @@ footer a{font-size: 2em;}
 /**********************************************************Version mobile (MH)*******************************************************/
 @media only screen and (max-width:700px) {
 /************responsivité du header et du haut de la page (bannière, etc)***********/
-header{height:90px;}
+header{height:100px;}
 #logo img{width: 70px;}
 h1{font-size:1.2em;}
-nav{width:50%;right: 35%;top: 10%; position: absolute;}
+nav{width:50%;right: 35%;top: 10%;}
 nav a{font-size: 0.9em;}
 
 /************responsivité du bloc principal (texte et résumés)******************/
@@ -177,6 +179,7 @@ footer a{font-size: 1em;}
 }
 
 /********bienvenue*******/
+#session{width: 20%; height: 20%; align-items: flex-start; margin-left:80%; flex-direction: row; justify-content: center;}
 
 button{margin:20px 0px 20px 90px; background-color:#DEB887; cursor:pointer;}
 button:hover {background-color:#FCDEDE;}

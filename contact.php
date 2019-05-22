@@ -18,17 +18,19 @@
   <body onsubmit="Datevalid();">
    <div id="bloc_page">
 
-      <div><!-- Gestion du bouton connexion/déconnexion-->
+      <div id="session"><!-- Gestion du bouton connexion/déconnexion-->
+
+        <a href="index.php" id="logo"><img src="images/logo.png" alt="Logo de site" title="Petitpanda" /></a>
 
         <p id="cookie">
           <?php
 // on définit une durée de vie de notre cookie (en secondes) pour le tester il est régler à 20 secondes (sinon 6 mois = 182*24*3600).
             $temps = 20;
 
-// on envoie un cookie de nom firstcontact portant la valeur ""
+// on envoie un cookie de nom firstday portant la valeur ""
 
-          if(!isset($_COOKIE['firstcontact'])){
-            setcookie ("firstcontact", "_", time() + $temps);
+          if(!isset($_COOKIE['firstday'])){
+            setcookie ("firstday", "_", time() + $temps);
             echo "Bienvenue";
           }
 
@@ -45,7 +47,7 @@
             <?php echo 'Bienvenue ' . $_SESSION["login"];?>
           </p>
 <!-- Création du bouton déconnexion qui redirige vers la pge déconnexion -->
-          <p>
+          <p class="boutonco">
             <button class="conex" onClick="location.href='deconnexion.php';">Déconnexion</button>
           </p>
 
@@ -53,7 +55,7 @@
             }else {
           ?>
 <!-- Création du bouton connexion qui redirige vers la page connexion-->
-          <p>
+          <p class="boutonco">
             <button class="conex" onClick="location.href='connexion.php';">Connexion</button>
           </p>
 
@@ -62,9 +64,6 @@
 
      <header>
 
-	   <div id="logo">
-         <img src="images/logo.png" alt="Logo de site" />
-       </div>
 	   <nav>
          <ul>
            <li> <a href="index.php"><img id="home" src="images/home.jpg" alt="icone accueil" title="accueil" /></a></li>
@@ -122,13 +121,13 @@
 <!-- Le checked="checked" permet de donner une valeur par défaut à l'input radio (pas d'erreur champs vide sur message.php).-->
 
 		   <p> 
-	       <input type="radio" name="sujet" value="moins de 15h par semaine" id="moins de 15h par semaine" checked="checked" /> <label for="riche">Demande de contact </label>
+	       <input type="radio" name="sujet" value="Demande de contact" id="demande_contact" checked="checked" /> <label for="riche">Demande de contact</label>
 		   </p>
 		   <p>
-           <input type="radio" name="sujet" value="entre 15h et 20h" id="entre 15h et 20h" /> <label for="entre 10h et 20h">Demande d'information</label>
+           <input type="radio" name="sujet" value="Demande d'information" id="information"/> <label for="entre 10h et 20h">Demande d'information</label>
 		   </p>
 		   <p>
-           <input type="radio" name="sujet" value="entre 20h et 35h" id="entre 20h et 35h" /> <label for="entre 20h et 35h"> Suggestion d'amélioration</label>
+           <input type="radio" name="sujet" value="Suggestion d'amélioration" id="suggestion" /> <label for="entre 20h et 35h">Suggestion d'amélioration</label>
 		   </p>
 		   <p>
 	       <label for="email"> Email<sup> * </sup></label>
@@ -202,3 +201,5 @@
     <script src="js/fonction.js" type="text/javascript"></script>
   </body>
  </html>)
+ 
+   

@@ -9,10 +9,16 @@
     <meta name="viewport" content="width=device-width" />
 
     <meta name = "description" content = "Journee de l'enfant à la creche Petitpanda. Le deroulement des temps de repos, sieste et repas
-    est decrit avec des exemples de jeux. Des activites pour l'eveil des nourrissonset petits enfants sont au programme. Nous y mettons l'acent
+    est decrit avec des exemples de jeux. Des activites pour l'eveil des nourrissons et petits enfants sont au programme. Nous y mettons l'acent
     sur le lien avec la nature."/>
 
-    <title>creche, activite, jeux, petits, premiers pas, garde</title>
+    <meta name="keywords" content="creche, activite, jeux, petits, garde, maternelle, premiers pas, enfants, parents, nounou">
+
+    <meta name="author" content="Marc Harel et Amina Arbane">
+
+    <meta name="publisher" content="Marc Harel et Amina Arbane" />
+
+    <title>Journee dans la creche, jeux et conseils</title>
 
     <link rel='stylesheet' href='css/styleamina.css' />
 
@@ -21,8 +27,9 @@
   <body>
     <div id="bloc_page">
 
+      <div id="session"><!-- Gestion du bouton connexion/déconnexion-->
 
-      <div><!-- Gestion du bouton connexion/déconnexion-->
+        <a href="index.php" id="logo"><img src="images/logo.png" alt="Logo de site" title="Petitpanda" /></a>
 
         <p id="cookie">
           <?php
@@ -49,7 +56,7 @@
             <?php echo 'Bienvenue ' . $_SESSION["login"];?>
           </p>
 <!-- Création du bouton déconnexion qui redirige vers la pge déconnexion -->
-          <p>
+          <p class="boutonco">
             <button class="conex" onClick="location.href='deconnexion.php';">Déconnexion</button>
           </p>
 
@@ -57,7 +64,7 @@
             }else {
           ?>
 <!-- Création du bouton connexion qui redirige vers la page connexion-->
-          <p>
+          <p class="boutonco">
             <button class="conex" onClick="location.href='connexion.php';">Connexion</button>
           </p>
 
@@ -66,9 +73,7 @@
 
       <header>
 
-        <div id="logo">
-         <img src="images/logo.png" alt="Logo de site" title="Petitpanda" />
-        </div>
+
 
         <nav>
           <ul>
@@ -118,7 +123,7 @@
 
         <div>
           <ul>
-            <li> <a href="index.html">Accueil</a></li>
+            <li> <a href="index.php">Accueil</a></li>
             <li><a href="mention-legales.php">Mentions légales</a></li>
             <li><a href="contact.php"><img id="icone-contact" src="images/icone.png" alt="icone contact" title="contact" /></a></li>
           </ul>

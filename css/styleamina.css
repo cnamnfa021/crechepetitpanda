@@ -4,16 +4,21 @@
 body, h1, h2, ul, li, nav, article, section { margin: 0; padding:0; border:0}
 p{-webkit-margin-befor:0} /* annuler les valeurs par défaut navigateur */
 
+strong{color::#800000;}
 
-#bloc_page{margin: auto; background-color:#FFF8DC ;}
+#bloc_page{margin: auto; background-color:#FFF8DC ; display: flex; flex-direction :column; width: 90%;}
 body {font-family: 'Trebuchet MS', Arial, sans-serif;color: #181818;}
 
-/*************************************************************************************************** Header ***********************************************************************************************************************/
+/*************************************************************************************************** Header et haut de la page ***********************************************************************************************************************/
 #logo img{height: auto;}
+#logo {margin-left:-400%; margin-top: 80%;}
+
 #home{width: 50px;height: auto;margin-bottom:20px}	 
-header{background-color:#FFF8DC ;display: flex;justify-content: space-between;align-items: flex-end;border-radius: 5px 5px 0px 0px;}
+header{background-color:#FFF8DC ;display: flex;border-radius: 5px 5px 0px 0px;}
 
+#cookie {margin-top:-50px; text-align: center;}
 
+#bienvenu{text-align: center;}
 /**************************************************************************************************** Navigation *****************************************************************************************************************/
 
 nav ul{list-style-type: none;display: flex;}
@@ -51,7 +56,6 @@ nav a:hover{color: #760001;box-shadow: 0px 4px 4px #1c1a19; border-radius: 5px;}
 #coordonee{margin:30px; text-align:justify; line-height:50px;font-size: 1.2em;}
 
 #map{height:300px;}
-
 
 /*************************************le formulaire de contact*************************************/
 
@@ -92,7 +96,7 @@ input[type=submit]:active, input[type=reset]:active {background-color:#FFF8DC;bo
 /*************************le corps ********************************/
 #contenu {display: flex;flex-wrap: wrap;margin-top:5px; margin-left:50px}
 
-#article1, #article2,#article3, #article4 { margin: 20px; padding:20px}
+#article1, #article2,#article3, #article4 {margin: 20px; padding:20px; background-size: cover;}
 
 /**************** image arrière plan de chaque article**********************/
 
@@ -129,7 +133,7 @@ input[type=submit]:active, input[type=reset]:active {background-color:#FFF8DC;bo
 /***************contenu *****************/
 
 
-#intro {margin:50px; text-align:justify; line-height:25px;}
+#intro {margin:50px; text-align:justify; line-height:25px; overflow-wrap: break-word;}
 article{display:flex; padding:10px;}
 h2{color:#800000}
 .paragraphe{height:200px; padding: 5px 20px 0px 20px; text-align:justify; line-height:25px;background: #FFDEAD; border-radius: 0px 5px 5px 0px;}
@@ -165,7 +169,7 @@ button:hover {background-color:#FCDEDE;}
 
 
  /********************************************************************************************************Footer*********************************************************************************************************** */
-footer {background:url('../images/bambou.jpg') no-repeat;padding-top: 50px;}
+footer {background:url('../images/bambou.jpg') no-repeat;padding-top: 50px; width: 100%;background-size: cover;}
 footer ul{display: flex;justify-content: space-evenly;list-style-type: none;position: center;}
 footer a{ color:#FFF8DC ;text-decoration: none;}
 footer a:hover{color: #760001;box-shadow: 0px 4px 4px #1c1a19; border-radius: 5px;padding:5px}
@@ -196,9 +200,9 @@ caption {
 header{height:auto;}
 #logo img{width: 150px;}
 
-#bloc_page{width: 1200px;}
+
 h1{font-size:2em;}
-nav{width: 70%;right: 10%;position: absolute;}
+nav{width: 70%;}
 nav a{font-size: 1.5em;}
 
 #adresse{direction: wrap;}
@@ -208,7 +212,7 @@ input[type=submit] {width:20%;}
 #article1, #article2,#article3, #article4 {width:40%; height: 350px;}
  
 /**************************responsivité du footer*******************************/
-footer {width:1200px;}
+
 footer a{font-size: 2em;}
 #copy{margin-left:400px; font-size: 1.3em;}
 #icone-contact{width: 50px; height: auto;}
@@ -222,42 +226,37 @@ table{font-size: 1em;}
 }
 
 /*--------------------------------------------------------------------------------------------- bouton connexion------------------------------------------*/
-.conex { position: absolute;
-	right: 4%;
-	top:35px;}
-#bienvenu{ position: absolute; right: 3%; top: 10px; margin:5px;
-	}
+.boutonco {justify-content: center; display: flex; align-items: center;}
 
-#cookie{position: absolute;right: 3%; top: 25px; margin:5px;}
+.conex{margin:0;}
 
 /**********************************************************Version mobile (MH)*******************************************************/
 @media only screen and (max-width:700px) {
 
-header{height:90px;}
+header{height:100px;}
 #logo img{width: 70px;}
 h1{font-size:1.2em;}
-nav{width:50%;right: 35%;top: 10%; position: absolute;}
+nav{width:50%;right: 35%;top: 10%;}
 nav a{font-size: 0.9em;}
 
 #adresse{flex-direction:column; align-content:center;}
 #map{width: 520px; margin:20px 30px 30px 30px;}
 input[type=submit] {width:30%;}
 
-
 /**************************responsivité du footer*******************************/
-footer {width: 600px;}
+
 footer a{font-size: 1em;}
-#bloc_page{width: 600px;}
+
 #copy{margin-left:200px; font-size: 0.8em;}
 
 /*page journée type*/
 #image{height: 100px;}
 .paragraphe{width: 400px; height: auto; font-size:0.8em;}
-#intro{width:500px; font-size: 1em;}
+#intro{font-size: 1em;}
 
 /*page parents*/
 #contenu {flex-direction: column;}
-#article1, #article2,#article3, #article4 {width:80%; height: 350px;}
+#article1, #article2,#article3, #article4 {width:auto; height: auto;}
 
 /******table responsivité*****/
 table{font-size: 0.6em;}
@@ -265,3 +264,5 @@ table{font-size: 0.6em;}
 
 /********bienvenue*******/
 #welcome{display: flex; justify-content:flex-end; flex-direction: column; margin : 0px;color:#800000}
+
+#session{width: 20%; height: 20%; align-items: flex-start; margin-left:80%; flex-direction: row; justify-content: center;}

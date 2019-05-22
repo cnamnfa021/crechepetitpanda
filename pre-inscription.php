@@ -2,23 +2,25 @@
 <html>
   <head>
     <meta charset='utf-8'/>
-    <title> pre-inscription </title>
+    <title>pre-inscription </title>
     <link rel='stylesheet' href='css/styleamina.css' />
   </head>
   <body>
     <div id="bloc_page">
 
-      <div><!-- Gestion du bouton connexion/déconnexion-->
+      <div id="session"><!-- Gestion du bouton connexion/déconnexion-->
+
+        <a href="index.php" id="logo"><img src="images/logo.png" alt="Logo de site" title="Petitpanda" /></a>
 
         <p id="cookie">
           <?php
 // on définit une durée de vie de notre cookie (en secondes) pour le tester il est régler à 20 secondes (sinon 6 mois = 182*24*3600).
             $temps = 20;
 
-// on envoie un cookie de nom firstregister portant la valeur ""
+// on envoie un cookie de nom firstday portant la valeur ""
 
-          if(!isset($_COOKIE['firstregister'])){
-            setcookie ("firstregister", "_", time() + $temps);
+          if(!isset($_COOKIE['firstday'])){
+            setcookie ("firstday", "_", time() + $temps);
             echo "Bienvenue";
           }
 
@@ -35,7 +37,7 @@
             <?php echo 'Bienvenue ' . $_SESSION["login"];?>
           </p>
 <!-- Création du bouton déconnexion qui redirige vers la pge déconnexion -->
-          <p>
+          <p class="boutonco">
             <button class="conex" onClick="location.href='deconnexion.php';">Déconnexion</button>
           </p>
 
@@ -43,7 +45,7 @@
             }else {
           ?>
 <!-- Création du bouton connexion qui redirige vers la page connexion-->
-          <p>
+          <p class="boutonco">
             <button class="conex" onClick="location.href='connexion.php';">Connexion</button>
           </p>
 
@@ -51,9 +53,7 @@
       </div>
 
       <header>
-	   <div id="logo">
-         <img src="images/logo.png" alt="Logo de site" />
-       </div>
+
 	   <nav>
          <ul>
            <li> <a href="index.php"><img id="home" src="images/home.jpg" /></a></li>
@@ -232,7 +232,7 @@
              <input type="email" name="email" id="email" size="30" maxlength="10" /> 
 	         </p>
              <p>
-	         <label for="commentaire"> Commentaires eventuels  :</label>
+	         <label for="commentaire"> Commentaires eventuels :</label>
 			 </p>
 			 <p>
              <textarea name="commentaire" id="commentaire" rows="10" cols="50"/></textarea>
@@ -249,7 +249,7 @@
 	   <div>
 	     <ul>
            <li> <a href="index.php">Accueil</a></li>
-           <li><a href="#">Mentions légales</a></li>
+           <li><a href="mentions-legales.php">Mentions légales</a></li>
            <li><a href="contact.php"><img id="icone-contact" src="images/icone.png" /></a></li>
          </ul>
 	   </div>
